@@ -2,12 +2,22 @@ package engine;
 
 import javax.swing.*;
 import java.io.*;
+import java.util.Properties;
 
 public class DataHandler {
 
-        // A karakter lap elmentése, betöltése fájlból
-
-        public void WriteData(Character character, File file)
+    /*private static final String MY_KEY = "key";
+    public void setProperty(Character character) {
+        Properties properties = new Properties();
+        properties.setProperty(MY_KEY, character.toString());
+        System.out.println(properties.getProperty(MY_KEY, "default"));
+        try {
+            properties.store(new FileOutputStream("lastUsedCharacter.properties"), "First try");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }*/
+    public void WriteData(Character character, File file)
         {
             try
             {
