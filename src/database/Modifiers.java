@@ -3,8 +3,8 @@ package database;
 import java.sql.*;
 
 public class Modifiers {
-    public //static void main (String[] args)
-        int getStrengthModifier(int classid)
+    public
+    int getStrengthModifier(int classid)
         {
         int strengthmodifier = 0;
             try {

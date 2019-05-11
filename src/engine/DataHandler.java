@@ -5,11 +5,7 @@ import java.io.*;
 
 public class DataHandler {
 
-        // Will handle reading and writing of the character sheet
-
-        public Boolean CheckSavedData() {
-            return false;
-        }
+        // A karakter lap elmentése, betöltése fájlból
 
         public void WriteData(Character character, File file)
         {

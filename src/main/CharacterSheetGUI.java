@@ -2,6 +2,8 @@ package main;
 
 import engine.Character;
 import engine.DataHandler;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
@@ -24,22 +26,16 @@ import java.util.Random;
 public class CharacterSheetGUI extends JFrame {
 
     public static final Font SectionTitleFont = new Font(Font.SANS_SERIF, Font.BOLD, 18);
-
     public static final Border SectionBorder = BorderFactory.createCompoundBorder(
             BorderFactory.createBevelBorder(BevelBorder.LOWERED),
             BorderFactory.createEmptyBorder(10, 10, 10, 10));
-
     private final JFileChooser fileChooser = new JFileChooser();
-
     private final Random rand = new Random();
-
     private RightClickListener rightClickListener = new RightClickListener();
-
     private JPanel contentPane;
     private HeaderPanel headerPanel;
     private CharacterValuesHolder characterValuesHolder;
     private TraitsPanel traitsPanel;
-
     private Character character;
     private DataHandler dataHandler;
 
@@ -56,8 +52,9 @@ public class CharacterSheetGUI extends JFrame {
 
 
     /**
-     * Create the frame.
+     * A grafikus felület létrehozása
      */
+
     public CharacterSheetGUI() {
         InitializeData();
         InitializeGUI();
@@ -112,17 +109,17 @@ public class CharacterSheetGUI extends JFrame {
         constraints.gridx = 2;
         traitsPanel = new TraitsPanel();
         holdingPanel.add(traitsPanel, constraints);
-
-        // Scrollpane which holds the body of the form.
         JScrollPane scrollPane = new JScrollPane(holdingPanel, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
                 JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         contentPane.add(scrollPane, BorderLayout.CENTER);
-
-        // Initialize top toolbar
-        //contentPane.add(new TopMenu("Tools",  dataHandler), BorderLayout.NORTH);
-        //contentPane.add(new MenuBar(dataHandler), BorderLayout.NORTH);
         this.setJMenuBar(new MenuBar(dataHandler));
-    }
+       //TODo Képmegjelenítés
+        /*ImagePanel panel = new ImagePanel(new ImageIcon("C:\\Users\\Geri\\Documents\\GitHub\\LOTR\\src\\pictures\\logo.jpg").getImage());
+
+        JFrame frame = new JFrame();
+        frame.getContentPane().add(panel);
+        frame.pack();*/
+}
 
     private class MenuBar extends JMenuBar implements ActionListener {
         private DataHandler dataHandler;
@@ -141,44 +138,21 @@ public class CharacterSheetGUI extends JFrame {
         }
 
         private void AddButtons() {
-            VerticalMenu fileMenu = new VerticalMenu("File");
-
             JMenuItem saveButton = new JMenuItem("Save");
             saveButton.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, InputEvent.CTRL_MASK));
             saveButton.setActionCommand("Save");
             saveButton.addActionListener(this);
-            fileMenu.add(saveButton);
+            saveButton.setMaximumSize(new Dimension(saveButton.getPreferredSize().width, Integer.MAX_VALUE));
+            this.add(saveButton);
 
             JMenuItem loadButton = new JMenuItem("Load");
             loadButton.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O, InputEvent.CTRL_MASK));
             loadButton.setActionCommand("Load");
             loadButton.addActionListener(this);
-            fileMenu.add(loadButton);
+            loadButton.setMaximumSize(new Dimension(loadButton.getPreferredSize().width, Integer.MAX_VALUE));
 
-            JMenuItem importButton = new JMenuItem("Import");
-            importButton.setActionCommand("Import");
-            importButton.addActionListener(this);
-            fileMenu.add(importButton);
+            this.add(loadButton);
 
-            this.add(fileMenu);
-
-            JMenuItem rollButton = new JMenuItem("Roll");
-            rollButton.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_R, InputEvent.CTRL_MASK));
-            rollButton.setActionCommand("Roll");
-            rollButton.addActionListener(this);
-
-            rollButton.setMaximumSize(new Dimension(rollButton.getPreferredSize().width, Integer.MAX_VALUE));
-            this.add(rollButton);
-
-            JMenuItem infoButton = new JMenuItem("Info");
-            infoButton.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_I, InputEvent.CTRL_MASK));
-            infoButton.setActionCommand("Info");
-            infoButton.addActionListener(this);
-
-            infoButton.setMaximumSize(new Dimension(infoButton.getPreferredSize().width, Integer.MAX_VALUE));
-            this.add(infoButton);
-
-            //this.add(Box.createHorizontalGlue());
         }
 
         public void actionPerformed(ActionEvent ae) {
@@ -186,6 +160,7 @@ public class CharacterSheetGUI extends JFrame {
                 // Save file chooser
                 fileChooser.setSelectedFile(new File(character.getName().concat("Save.bin")));
                 int returnVal = fileChooser.showSaveDialog(contentPane);
+                //TODO Properties megcsinálása
 
                 // If selected we save the file
                 if (returnVal == JFileChooser.APPROVE_OPTION) {
@@ -202,24 +177,30 @@ public class CharacterSheetGUI extends JFrame {
                     character = this.dataHandler.ReadData(file);
                     UpdateAllFields();
                 }
-
-                //} else if (ae.getActionCommand().equals("Import")) {
-                //int returnVal = fileChooser.showOpenDialog(contentPane);
-                //if (returnVal == JFileChooser.APPROVE_OPTION) {
-                //    File file = fileChooser.getSelectedFile();
-                //    this.dataHandler.ImportData(file);
-                //}
             }
         }
 
+    }
+    private class ImagePanel extends JPanel {
 
-        private class VerticalMenu extends JMenu{
+        private Image img;
 
-            public VerticalMenu(String label) {
-                super(label);
-                JPopupMenu pm = getPopupMenu();
-                pm.setLayout(new BoxLayout(pm, BoxLayout.PAGE_AXIS));
-            }
+        public ImagePanel(String img) {
+            this(new ImageIcon(img).getImage());
+        }
+
+        public ImagePanel(Image img) {
+            this.img = img;
+            Dimension size = new Dimension(img.getWidth(null), img.getHeight(null));
+            setPreferredSize(size);
+            setMinimumSize(size);
+            setMaximumSize(size);
+            setSize(size);
+            setLayout(null);
+        }
+
+        public void paintComponent(Graphics g) {
+            g.drawImage(img, 0, 0, null);
         }
     }
 
@@ -311,9 +292,7 @@ public class CharacterSheetGUI extends JFrame {
         }
 
         @Override
-        public void changedUpdate(DocumentEvent e) {
-
-        }
+        public void changedUpdate(DocumentEvent e) { }
 
         private class CharacterDetailsPanel extends JPanel implements DocumentListener {
             // Goes within header - contains character information
@@ -383,10 +362,6 @@ public class CharacterSheetGUI extends JFrame {
                 constraints.gridx = 1;
                 this.add(raceDropDown, constraints);
 
-                JLabel alignmentLabel = new JLabel("Alignment");
-                constraints.gridx = 2;
-                this.add(alignmentLabel, constraints);
-
                 JLabel expPointsLabel = new JLabel("Experience Points");
                 constraints.gridx = 3;
                 this.add(expPointsLabel, constraints);
@@ -455,10 +430,6 @@ public class CharacterSheetGUI extends JFrame {
     private class CharacterValuesHolder extends JPanel implements DocumentListener {
         // Contains panels for attributes, skills, saving throws etc.
         private AttributePanel attrPanel;
-        private SavingThrowsPanel savingThrowsPanel;
-        private InputBox inspirationInputBox;
-        private InputBox proficiencyBonus;
-        private InputBox passiveWisInputBox;
 
         private JTextArea profAndLangTextArea;
 
@@ -499,22 +470,6 @@ public class CharacterSheetGUI extends JFrame {
             NumericalFilter signedFilter = new NumericalFilter();
             signedFilter.setNeedsSign(true); signedFilter.setMaxCharacters(3);
 
-            inspirationInputBox = new InputBox("Inspiration", numFilter);
-            constraints.gridx = 0;
-            constraints.gridy = 0;
-            constraints.anchor = GridBagConstraints.LINE_START;
-            rightHoldingPanel.add(inspirationInputBox, constraints);
-
-            proficiencyBonus = new InputBox("Proficiency Bonus", signedFilter);
-            constraints.gridy += 1;
-            rightHoldingPanel.add(proficiencyBonus, constraints);
-
-            savingThrowsPanel = new SavingThrowsPanel();
-            constraints.gridy += 1;
-            constraints.anchor = GridBagConstraints.CENTER;
-            constraints.fill = GridBagConstraints.HORIZONTAL;
-            rightHoldingPanel.add(savingThrowsPanel, constraints);
-
             JPanel bottomHoldingPanel = new JPanel();
             bottomHoldingPanel.setLayout(new BoxLayout(bottomHoldingPanel, BoxLayout.Y_AXIS));
 
@@ -524,9 +479,6 @@ public class CharacterSheetGUI extends JFrame {
             constraints.anchor = GridBagConstraints.CENTER;
             this.add(bottomHoldingPanel, constraints);
 
-
-            passiveWisInputBox = new InputBox("Passive Wisdom (Perception)", numFilter);
-            bottomHoldingPanel.add(passiveWisInputBox);
 
             profAndLangTextArea = new JTextArea(4, 20);
             profAndLangTextArea.setLineWrap(true);
@@ -558,8 +510,6 @@ public class CharacterSheetGUI extends JFrame {
 
             String textValue = textComp.getText();
             int signedValue = 0;
-
-            //TODO Quite hacky
             if (!charAttr.equals("ProfAndLang")) {
                 signedValue = GetSignedIntValue(textValue);
             }
@@ -580,45 +530,13 @@ public class CharacterSheetGUI extends JFrame {
             SetCharacterPropertyByName((AbstractDocument) e.getDocument());
         }
 
-        private class InputBox extends JPanel {
-
-            private JTextField inputBox;
-            private String labelText;
-
-            public InputBox(String labelText, NumericalFilter filter) {
-                this.labelText = labelText;
-
-                InitializePanel();
-                AddComponents(filter);
-            }
-
-            private void InitializePanel() {
-                this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-            }
-
-            private void AddComponents(NumericalFilter filter) {
-                inputBox = new JTextField();
-                this.add(inputBox);
-                inputBox.setColumns(3);
-                inputBox.setMaximumSize(new Dimension(inputBox.getPreferredSize()));
-
-                AbstractDocument doc = (AbstractDocument) inputBox.getDocument();
-                doc.setDocumentFilter(filter);
-                doc.addDocumentListener(CharacterValuesHolder.this);
-                doc.putProperty("owner", inputBox);
-                doc.putProperty("charAttr", labelText);
-
-                JLabel boxLabel = new JLabel(labelText);
-                this.add(boxLabel);
-            }
-        }
-
         private class AttributePanel extends JPanel implements DocumentListener {
             private AttributeBox strBox;
-            private AttributeBox dexBox;
+            private AttributeBox aglBox;
             private AttributeBox conBox;
+            private AttributeBox hthBox;
             private AttributeBox intBox;
-            private AttributeBox wisBox;
+            private AttributeBox innBox;
             private AttributeBox chaBox;
 
             public AttributePanel() {
@@ -638,9 +556,9 @@ public class CharacterSheetGUI extends JFrame {
 
                 this.add(Box.createRigidArea(new Dimension(1, 40)));
 
-                dexBox = new AttributeBox("Dexterity", 1, 2);
-                dexBox.addMouseListener(rightClickListener);
-                this.add(dexBox);
+                aglBox = new AttributeBox("Agility", 1, 2);
+                aglBox.addMouseListener(rightClickListener);
+                this.add(aglBox);
 
                 this.add(Box.createRigidArea(new Dimension(1, 40)));
 
@@ -656,15 +574,20 @@ public class CharacterSheetGUI extends JFrame {
 
                 this.add(Box.createRigidArea(new Dimension(1, 40)));
 
-                wisBox = new AttributeBox("Wisdom", 1, 2);
-                wisBox.addMouseListener(rightClickListener);
-                this.add(wisBox);
+                hthBox = new AttributeBox("Health", 1, 2);
+                hthBox.addMouseListener(rightClickListener);
+                this.add(hthBox);
 
                 this.add(Box.createRigidArea(new Dimension(1, 40)));
 
                 chaBox = new AttributeBox("Charisma", 1, 2);
                 chaBox.addMouseListener(rightClickListener);
                 this.add(chaBox);
+                this.add(Box.createRigidArea(new Dimension(1, 40)));
+
+                innBox = new AttributeBox("Intuition", 1, 2);
+                innBox.addMouseListener(rightClickListener);
+                this.add(innBox);
             }
 
             private void SetAttributeByName(String attrName, int newValue) {
@@ -719,8 +642,8 @@ public class CharacterSheetGUI extends JFrame {
                 strBox.attrField.setText(Integer.toString(character.getStrength()));
                 strBox.attrArea.setText(Integer.toString(character.getStrBonus()));
 
-                dexBox.attrField.setText(Integer.toString(character.getAgility()));
-                dexBox.attrArea.setText(Integer.toString(character.getAgiBonus()));
+                aglBox.attrField.setText(Integer.toString(character.getAgility()));
+                aglBox.attrArea.setText(Integer.toString(character.getAgiBonus()));
 
                 conBox.attrField.setText(Integer.toString(character.getConstitution()));
                 conBox.attrArea.setText(Integer.toString(character.getConBonus()));
@@ -728,13 +651,13 @@ public class CharacterSheetGUI extends JFrame {
                 intBox.attrField.setText(Integer.toString(character.getIntelligence()));
                 intBox.attrArea.setText(Integer.toString(character.getIntBonus()));
 
-                wisBox.attrField.setText(Integer.toString(character.getHealth()));
-                wisBox.attrArea.setText(Integer.toString(character.getHthBonus()));
+                hthBox.attrField.setText(Integer.toString(character.getHealth()));
+                hthBox.attrArea.setText(Integer.toString(character.getHthBonus()));
 
                 chaBox.attrField.setText(Integer.toString(character.getCharisma()));
                 chaBox.attrArea.setText(Integer.toString(character.getChaBonus()));
-                chaBox.attrField.setText(Integer.toString(character.getIntuition()));
-                chaBox.attrArea.setText(Integer.toString(character.getInnBonus()));
+                innBox.attrField.setText(Integer.toString(character.getIntuition()));
+                innBox.attrArea.setText(Integer.toString(character.getInnBonus()));
             }
 
             @Override
@@ -764,7 +687,7 @@ public class CharacterSheetGUI extends JFrame {
 
             }
 
-            private class AttributeBox extends JPanel implements Rollable {
+            private class AttributeBox extends JPanel {
                 private String attrString;
 
                 private JTextArea attrArea;
@@ -820,129 +743,6 @@ public class CharacterSheetGUI extends JFrame {
                     constraints.gridy = 2;
                     this.add(attrField, constraints);
                 }
-
-                @Override
-                public int[] GetRoll() {
-                    return new int[] { GetSignedIntValue(attrArea.getText()) };
-                }
-            }
-        }
-
-        private class SavingThrowsPanel extends JPanel {
-            private CheckBoxPanel strCheckBox;
-            private CheckBoxPanel dexCheckBox;
-            private CheckBoxPanel conCheckBox;
-            private CheckBoxPanel intCheckBox;
-            private CheckBoxPanel wisCheckBox;
-            private CheckBoxPanel chaCheckBox;
-
-            public SavingThrowsPanel() {
-                InitializePanel();
-                AddComponents();
-            }
-
-            private void InitializePanel() {
-                this.setLayout(new GridBagLayout());
-                this.setBorder(SectionBorder);
-            }
-
-            private void AddComponents() {
-                GridBagConstraints constraints = new GridBagConstraints();
-                strCheckBox = new CheckBoxPanel("Strength", "Throw");
-                dexCheckBox = new CheckBoxPanel("Dexterity", "Throw");
-                conCheckBox = new CheckBoxPanel("Constitution", "Throw");
-                intCheckBox = new CheckBoxPanel("Intelligence", "Throw");
-                wisCheckBox = new CheckBoxPanel("Wisdom", "Throw");
-                chaCheckBox = new CheckBoxPanel("Charisma", "Throw");
-
-                strCheckBox.addMouseListener(rightClickListener);
-                dexCheckBox.addMouseListener(rightClickListener);
-                conCheckBox.addMouseListener(rightClickListener);
-                intCheckBox.addMouseListener(rightClickListener);
-                wisCheckBox.addMouseListener(rightClickListener);
-                chaCheckBox.addMouseListener(rightClickListener);
-
-                constraints.gridx = 0;
-                constraints.gridy = 0;
-                constraints.anchor = GridBagConstraints.LINE_START;
-                constraints.weightx = 1;
-                this.add(strCheckBox, constraints);
-                constraints.gridy += 1;
-                this.add(dexCheckBox, constraints);
-                constraints.gridy += 1;
-                this.add(conCheckBox, constraints);
-                constraints.gridy += 1;
-                this.add(intCheckBox, constraints);
-                constraints.gridy += 1;
-                this.add(wisCheckBox, constraints);
-                constraints.gridy += 1;
-                this.add(chaCheckBox, constraints);
-                constraints.gridy += 1;
-
-                JLabel savingThrowsLabel = new JLabel("Saving Throws");
-                savingThrowsLabel.setFont(SectionTitleFont);
-                constraints.gridy += 1;
-                constraints.anchor = GridBagConstraints.CENTER;
-                this.add(savingThrowsLabel, constraints);
-            }
-
-
-        }
-
-        private class CheckBoxPanel extends JPanel implements ItemListener, Rollable {
-            private JCheckBox checkBox;
-            private JTextField textField;
-            private JLabel label;
-            private String identifier;
-
-            public CheckBoxPanel(String labelText, String suffix) {
-                this.InitializePanel();
-                this.AddComponents(labelText, suffix);
-            }
-
-            private void InitializePanel() {
-                this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-            }
-
-            private void AddComponents(String labelText, String suffix) {
-                checkBox = new JCheckBox();
-                this.add(checkBox);
-                checkBox.setSelected(false);
-                checkBox.addItemListener(this);
-
-                textField = new JTextField();
-                this.add(textField);
-                textField.setColumns(3);
-
-                AbstractDocument fieldDoc = (AbstractDocument) textField.getDocument();
-                NumericalFilter signedFilter = new NumericalFilter();
-                signedFilter.setNeedsSign(true); signedFilter.setMaxCharacters(3);
-                fieldDoc.setDocumentFilter(signedFilter);
-
-                this.identifier = labelText.concat(suffix);
-                fieldDoc.putProperty("charAttr", this.identifier);
-                fieldDoc.putProperty("owner",textField);
-
-                // Has to work with skills and saving throw fields
-                fieldDoc.addDocumentListener(CharacterValuesHolder.this);
-
-                label = new JLabel(labelText);
-                this.add(label);
-            }
-
-            @Override
-            public void itemStateChanged(ItemEvent e) {
-                if (e.getStateChange() == ItemEvent.SELECTED) {
-                    textField.setFont(boldFieldFont);
-                    label.setFont(boldLabelFont);
-                } else {
-                    textField.setFont(defaultFieldFont);
-                    label.setFont(defaultLabelFont);
-                }
-            }
-
-            public int[] GetRoll() {
-                return new int [] { GetSignedIntValue(textField.getText()) };
             }
         }
     }
