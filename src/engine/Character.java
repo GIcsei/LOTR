@@ -1,5 +1,6 @@
 package engine;
 
+
 public class Character implements  java.io.Serializable{
     /*Egy karakternek az alábbi tulajdonságokkal kell rendelkeznie
      *Karakter kreálásakor ezek a legfőbb tulajdonságok, majd ehhez még jönnek
@@ -10,7 +11,7 @@ public class Character implements  java.io.Serializable{
     private Classes characterClass;
     private Races race;
     // Attributes
-    private int strength, dexterity, health, intelligence, luck, constitution;
+    private int strength, dexterity, intelligence, constitution, luck;
     private int[] equipmentsId;
     // Progress
     private int experiencePoints;
@@ -76,13 +77,6 @@ public class Character implements  java.io.Serializable{
         this.dexterity = dexterity;
     }
 
-    public int getHealth() {
-        return health;
-    }
-
-    public void setHealth(int health) {
-        this.health = health;
-    }
 
     public int getIntelligence() {
         return intelligence;

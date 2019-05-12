@@ -10,5 +10,6 @@
     <orderEntry type="library" name="sqlite-jdbc-3.27.2.1" level="project" />
     <orderEntry type="library" name="MigLayout" level="project" />
     <orderEntry type="library" name="drive" level="project" />
+    <orderEntry type="library" name="libs" level="project" />
   </component>
 </module>

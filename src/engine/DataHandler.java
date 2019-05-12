@@ -1,62 +1,44 @@
 package engine;
 
-import javax.swing.*;
-import java.io.*;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Properties;
+
 
 public class DataHandler {
 
-    /*private static final String MY_KEY = "key";
-    public void setProperty(Character character) {
-        Properties properties = new Properties();
-        properties.setProperty(MY_KEY, character.toString());
-        System.out.println(properties.getProperty(MY_KEY, "default"));
+    private static final String MY_KEY = "character_id";
+    private static final String MY_KEY2 = "Version_Number";
+    public void Saver(int id) {
+        Properties lastUsedCharacter = new Properties();
+        lastUsedCharacter.setProperty(MY_KEY, (new String().valueOf(id)));
+        System.out.println(lastUsedCharacter.getProperty(MY_KEY, "0"));
+        lastUsedCharacter.setProperty(MY_KEY2, "0.9");
         try {
-            properties.store(new FileOutputStream("lastUsedCharacter.properties"), "First try");
+              lastUsedCharacter.store(new FileOutputStream("lastUsedCharacter.properties"), "Utoljára kimentett karakter Id-ja");
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }*/
-    public void WriteData(Character character, File file)
-        {
-            try
-            {
-                FileOutputStream fileOut =
-                        new FileOutputStream(file);
-                ObjectOutputStream out = new ObjectOutputStream(fileOut);
-                out.writeObject(character);
-                out.close();
-                fileOut.close();
-                System.out.println("Serialized data is saved in ".concat(file.getCanonicalPath()));
-            }catch(IOException i)
-            {
-                JOptionPane.showMessageDialog(null, i.getMessage());
-            }
+    }
+    public int Loader () {
+        Properties lastUsedCharacter = new Properties();
+        try {
+            lastUsedCharacter.load(new FileInputStream("lastUsedCharacter.properties"));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-
-        public Character ReadData(File file)
-        {
-            Character character;
-            System.out.println("Reading data.");
-
-            try {
-                FileInputStream fileIn = new FileInputStream(file);
-                ObjectInputStream in = new ObjectInputStream(fileIn);
-                character = (Character) in.readObject();
-                in.close();
-                fileIn.close();
-            } catch(IOException ex) {
-                JOptionPane.showMessageDialog(null, ex.getMessage().concat("\nUsing default character."));
-                return new Character();
-            } catch(ClassNotFoundException c) {
-                JOptionPane.showMessageDialog(null, c.getMessage().concat("\nUsing default character."));
-                c.printStackTrace();
-                return new Character();
-            } catch (ClassCastException ce) {
-                JOptionPane.showMessageDialog(null, ce.getMessage().concat("\nUsing default character."));
-                return new Character();
-            }
-
-            return character;
+        int id= Integer.parseInt(lastUsedCharacter.getProperty(MY_KEY));
+        return id;
+    }
+    public String versionNumber(){
+        Properties lastUsedCharacter = new Properties();
+        try {
+            lastUsedCharacter.load(new FileInputStream("lastUsedCharacter.properties"));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+        String versionNum= lastUsedCharacter.getProperty(MY_KEY2);
+        return versionNum;
+    }
 }
