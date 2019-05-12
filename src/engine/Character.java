@@ -1,21 +1,28 @@
 package engine;
 
 
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+
 public class Character implements  java.io.Serializable{
     /*Egy karakternek az alábbi tulajdonságokkal kell rendelkeznie
      *Karakter kreálásakor ezek a legfőbb tulajdonságok, majd ehhez még jönnek
      * az osztályspecifikus módosítók
      */
     // Character details
-    private String name="";
+    private final SimpleStringProperty name=new SimpleStringProperty("");
     private Classes characterClass;
     private Races race;
     // Attributes
-    private int strength, dexterity, intelligence, constitution, luck;
-    private int[] equipmentsId;
+    private final SimpleIntegerProperty strength=new SimpleIntegerProperty(0);
+    private final SimpleIntegerProperty dexterity=new SimpleIntegerProperty(0);
+    private final SimpleIntegerProperty intelligence=new SimpleIntegerProperty(0);
+    private final SimpleIntegerProperty constitution=new SimpleIntegerProperty(0);
+    private final SimpleIntegerProperty luck=new SimpleIntegerProperty(0);
     // Progress
-    private int experiencePoints;
-    private int level;
+    private final SimpleIntegerProperty experiencePoints=new SimpleIntegerProperty(0);
+
+    private final SimpleIntegerProperty level=new SimpleIntegerProperty(0);
     public enum Classes {
         Warrior("Warrior"), Scout("Scout"), Mage("Mage");
         private final String Classes;
@@ -37,14 +44,17 @@ public class Character implements  java.io.Serializable{
     }
 
     public Character(){}
-    public String getName() {
-        return name;
+    public Character(String name, int strength, int dexterity, int intelligence, int constitution, int luck, int experiencePoints, int level, Classes characterClass){
+        this.characterClass = characterClass;
+        this.name.set(name);
+        this.strength.set(strength);
+        this.dexterity.set(dexterity);
+        this.intelligence.set(intelligence);
+        this.constitution.set(constitution);
+        this.luck.set(luck);
+        this.experiencePoints.set(experiencePoints);
+        this.level.set(level);
     }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public Classes getCharacterClass() {
         return characterClass;
     }
@@ -61,69 +71,64 @@ public class Character implements  java.io.Serializable{
         this.race = race;
     }
 
-    public int getStrength() {
-        return strength;
-    }
+    public String getName(){return name.get();}
 
-    public void setStrength(int strength) {
-        this.strength = strength;
+    public int getStrength() {
+        return strength.get();
     }
 
     public int getDexterity() {
-        return dexterity;
+        return dexterity.get();
     }
-
-    public void setDexterity(int dexterity) {
-        this.dexterity = dexterity;
-    }
-
-
     public int getIntelligence() {
-        return intelligence;
-    }
-
-    public void setIntelligence(int intelligence) {
-        this.intelligence = intelligence;
-    }
-
-    public int getLuck() {
-        return luck;
-    }
-
-    public void setLuck(int luck) {
-        this.luck = luck;
+        return intelligence.get();
     }
 
     public int getConstitution() {
-        return constitution;
+        return constitution.get();
     }
 
-    public void setConstitution(int constitution) {
-        this.constitution = constitution;
-    }
-
-    public int[] getEquipmentsId() {
-        return equipmentsId;
-    }
-
-    public void setEquipmentsId(int[] equipmentsId) {
-        this.equipmentsId = equipmentsId;
+    public int getLuck() {
+        return luck.get();
     }
 
     public int getExperiencePoints() {
-        return experiencePoints;
-    }
-
-    public void setExperiencePoints(int experiencePoints) {
-        this.experiencePoints = experiencePoints;
+        return experiencePoints.get();
     }
 
     public int getLevel() {
-        return level;
+        return level.get();
+    }
+
+    public void setName(String name) {
+        this.name.set(name);
+    }
+
+    public void setStrength(int strength) {
+        this.strength.set(strength);
+    }
+
+    public void setDexterity(int dexterity) {
+        this.dexterity.set(dexterity);
+    }
+
+    public void setIntelligence(int intelligence) {
+        this.intelligence.set(intelligence);
+    }
+
+    public void setConstitution(int constitution) {
+        this.constitution.set(constitution);
+    }
+
+    public void setLuck(int luck) {
+        this.luck.set(luck);
+    }
+
+    public void setExperiencePoints(int experiencePoints) {
+        this.experiencePoints.set(experiencePoints);
     }
 
     public void setLevel(int level) {
-        this.level = level;
+        this.level.set(level);
     }
-
 }

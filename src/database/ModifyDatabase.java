@@ -70,8 +70,7 @@ public class ModifyDatabase {
         }
         return modifier;
     }
-    //Új karakter létrehozása
-    //TODO Lehetséges properties
+
     public int newCharacter(ArrayList<String> data){
         int characterId=0;
         ArrayList<Integer> rc=getRaceModifiers(data.get(2));
@@ -115,6 +114,36 @@ public class ModifyDatabase {
     return characterId;
     }
 
+    public int getCharId(String name){
+        int characterId=0;
+        try {
+            Class loadedClass = Class.forName("org.sqlite.JDBC");
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        }
+        String connectionString = "jdbc:sqlite:races.db";
+        try(Connection conn = DriverManager.getConnection(connectionString)) {
+            String sql = "SELECT Id from Characters where Id=?";
+            try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                pstmt.setString(1, name);
+                ResultSet rs = pstmt.executeQuery();
+                while (rs.next()) {
+                    characterId=rs.getInt("Id");
+                }
+            }
+        }
+        catch (SQLException ex) {
+            ex.getErrorCode();
+            ex.getSQLState();
+            ex.getCause();
+            ex.printStackTrace();
+            System.out.println("SQLException: " + ex.getMessage());
+            System.out.println("SQLState: " + ex.getSQLState());
+            System.out.println("VendorError: " + ex.getErrorCode());
+        }
+        return characterId;
+    }
+
     public ArrayList<Integer> FinalPoints(ArrayList<String> data,ArrayList<Integer> rc,ArrayList<Integer> cl){
         ArrayList<Integer> finalPoints=new ArrayList<>();
         for (int i=3;i<data.size();i++){
@@ -140,6 +169,7 @@ public class ModifyDatabase {
             try (PreparedStatement pstmt  = conn.prepareStatement(sql)) {
                 ResultSet rs  = pstmt.executeQuery();
                 while(rs.next()) {
+                    character=new Character();
                     character.setName(rs.getString("Name"));
                     character.setLevel(rs.getInt("Experience")/2000);
                     character.setRace(Character.Races.valueOf(rs.getString("RaceName")));
