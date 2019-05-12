@@ -22,6 +22,7 @@ import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
@@ -46,18 +47,30 @@ public class HelloWorld extends Application {
     public static final int maxPoints=75;
     public static final int maxSkillPoints=20;
     private TableView table = new TableView();
+    private static MediaPlayer mediaPlayer;
 
     @Override
     public void start(Stage primaryStage) {
         primaryStage.setTitle("LOTR Karakteralkotó");
         primaryStage.getIcons().add(new Image("\\pictures\\logo.jpg"));
+        final Task task = new Task() {
+            @Override
+            protected Object call() throws Exception {
+                Media media = new Media(new File("lotr.mp3").toURI().toString());
+                mediaPlayer = new MediaPlayer(media);
+                mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+                mediaPlayer.play();
+                return null;
+            }
+        };
+        Thread thread = new Thread(task);
+        thread.start();
         menu(primaryStage);
     }
     public static void main(String[] args) {
         launch(args);
 }
     public void menu(Stage primaryStage) {
-        music();
         DataHandler load=new DataHandler();
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.TOP_LEFT);
@@ -129,13 +142,11 @@ public class HelloWorld extends Application {
 
     }
     public void generateCharacter(Stage primaryStage){
-
-        music();;
         GridPane grid = new GridPane();
-        grid.setAlignment(Pos.CENTER_RIGHT);
+        grid.setAlignment(Pos.TOP_LEFT);
         grid.setHgap(10);
         grid.setVgap(10);
-        grid.setPadding(new Insets(25, 350, 25, 25));
+        grid.setPadding(new Insets(25, 25, 25, 25));
         BackgroundImage myBI = new BackgroundImage(new Image("\\pictures\\logo.jpg", 1920, 1080, false, true),
                 BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, true, true, true, true));
         //then you set to your node
@@ -143,37 +154,38 @@ public class HelloWorld extends Application {
         Text scenetitle = new Text("Karakter Háttere");
         scenetitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 24));
         scenetitle.setFill(Color.WHITE);
-        grid.add(scenetitle, 0, 0, 2, 1);
+        grid.add(scenetitle, 125, 0, 2, 1);
 
 
         Label userName = new Label("Karakter neve: ");
         userName.setTextFill(Color.WHITE);
-        grid.add(userName, 0, 1);
+        grid.add(userName, 124, 10);
         TextField userTextField = new TextField();
-        grid.add(userTextField, 1, 1);
+        grid.add(userTextField, 125, 10);
 
 
         ChoiceBox<Character.Classes> cc = new ChoiceBox<>();
         cc.getItems().setAll(Classes.values());
-        grid.add(cc, 1, 2);
+        grid.add(cc, 125, 15);
         Label cl = new Label("Osztály:");
         cl.setTextFill(Color.WHITE);
-        grid.add(cl, 0, 2);
+        grid.add(cl, 124, 15);
 
 
         ChoiceBox<Character.Races> cr = new ChoiceBox<>();
         cr.getItems().setAll(Races.values());
-        grid.add(cr, 1, 3);
+        grid.add(cr, 125, 20);
         Label crs = new Label("Faj:");
         crs.setTextFill(Color.WHITE);
-        grid.add(crs, 0, 3);
+        grid.add(crs, 124, 20);
 
 
         Button btn = new Button("Következő");
         HBox hbBtn = new HBox(10);
         hbBtn.setAlignment(Pos.BOTTOM_RIGHT);
         hbBtn.getChildren().add(btn);
-        grid.add(hbBtn, 1, 4);
+        grid.add(hbBtn, 125, 30);
+        //TODO hibakezelés
         final Text actiontarget = new Text();
         grid.add(actiontarget, 1, 6);
         try {
@@ -195,12 +207,12 @@ public class HelloWorld extends Application {
         primaryStage.show();
     }
     public void details(Stage primaryStage, ArrayList<String> data) {
-        music();
         GridPane grid = new GridPane();
-        grid.setAlignment(Pos.CENTER_RIGHT);
-        grid.setHgap(15);
-        grid.setVgap(15);
-        grid.setPadding(new Insets(25, 350, 25, 25));
+        grid.setGridLinesVisible(true);
+        grid.setAlignment(Pos.TOP_LEFT);
+        grid.setHgap(10);
+        grid.setVgap(10);
+        grid.setPadding(new Insets(25, 25, 25, 0));
         BackgroundImage myBI = new BackgroundImage(new Image("\\pictures\\logo.jpg", 1920, 1080, false, true),
                 BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, true, true, true, true));
         grid.setBackground(new Background(myBI));
@@ -208,14 +220,14 @@ public class HelloWorld extends Application {
         Text scenetitle = new Text("Tulajdonságok meghatározása");
         scenetitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 24));
         scenetitle.setFill(Color.WHITE);
-        grid.add(scenetitle, 0, 0, 2, 1);
+        grid.add(scenetitle, 115, 0, 2, 1);
 
         Label text=new Label("Felhasznált pontok");
-        grid.add(text, 1, 10);
+        grid.add(text, 115, 25);
         text.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
         text.setAlignment(Pos.CENTER);
         final Label usedPoints = new Label("0");
-        grid.add(usedPoints, 1, 11);
+        grid.add(usedPoints, 117, 25);
         usedPoints.setAlignment(Pos.CENTER);
         usedPoints.setTextFill(Color.BLACK);
         usedPoints.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
@@ -223,116 +235,116 @@ public class HelloWorld extends Application {
         //1. Strength
 
         final Label strengthPoints = new Label("0");
-        grid.add(strengthPoints, 1, 2);
+        grid.add(strengthPoints, 117, 12,1,2);
         strengthPoints.setAlignment(Pos.CENTER);
         strengthPoints.setTextFill(Color.BLACK);
         strengthPoints.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
-        Button up1 = new Button("^");
-        HBox hbUp1 = new HBox(50);
+        Button up1 = new Button("△");
+        HBox hbUp1 = new HBox(10);
         hbUp1.getChildren().add(up1);
-        grid.add(hbUp1, 0, 1);
+        grid.add(hbUp1, 116, 12);
         up1.setOnAction(e-> increase(usedPoints, strengthPoints));
         Label strength = new Label("Erő");
         strength.setTextFill(Color.WHITE);
-        grid.add(strength, 0, 2);
-        Button down1 = new Button("ˇ");
-        HBox hbdown1 = new HBox(50);
+        grid.add(strength, 115, 12,1,2);
+        Button down1 = new Button("▽");
+        HBox hbdown1 = new HBox(10);
         hbdown1.getChildren().add(down1);
-        grid.add(hbdown1, 0, 3);
+        grid.add(hbdown1, 116, 13);
         down1.setOnAction(e-> decrease(usedPoints, strengthPoints));
 
 
         //2. Dexterity
 
         final Label dexterityPoints = new Label("0");
-        grid.add(dexterityPoints, 1, 5);
+        grid.add(dexterityPoints, 117, 15,1,2);
         dexterityPoints.setAlignment(Pos.CENTER);
         dexterityPoints.setTextFill(Color.BLACK);
         dexterityPoints.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
-        Button up2 = new Button("^");
-        HBox hbUp2 = new HBox(50);
+        Button up2 = new Button("△");
+        HBox hbUp2 = new HBox(10);
         hbUp2.getChildren().add(up2);
-        grid.add(hbUp2, 0, 4);
+        grid.add(hbUp2, 116, 15);
         up2.setOnAction(e-> increase(usedPoints,dexterityPoints));
         Label dexterity = new Label("Ügyesség");
         dexterity.setTextFill(Color.WHITE);
-        grid.add(dexterity, 0, 5);
-        Button down2 = new Button("ˇ");
-        HBox hbdown2 = new HBox(50);
+        grid.add(dexterity, 115, 15,1,2);
+        Button down2 = new Button("▽");
+        HBox hbdown2 = new HBox(10);
         hbdown2.getChildren().add(down2);
-        grid.add(hbdown2, 0, 6);
+        grid.add(hbdown2, 116, 16);
         down2.setOnAction(e->decrease(usedPoints,dexterityPoints));
 
 
         //3. Intelligence
 
         final Label intelligencePoints = new Label("0");
-        grid.add(intelligencePoints, 1, 8);
+        grid.add(intelligencePoints, 117, 18,1,2);
         intelligencePoints.setAlignment(Pos.CENTER);
         intelligencePoints.setTextFill(Color.BLACK);
         intelligencePoints.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
-        Button up3 = new Button("^");
-        HBox hbUp3 = new HBox(50);
+        Button up3 = new Button("△");
+        HBox hbUp3 = new HBox(10);
         hbUp3.getChildren().add(up3);
-        grid.add(hbUp3, 0, 7);
+        grid.add(hbUp3, 116, 18);
         up3.setOnAction(e-> increase(usedPoints,intelligencePoints));
         Label intellgince = new Label("Intelligencia");
         intellgince.setTextFill(Color.WHITE);
-        grid.add(intellgince, 0, 8);
-        Button down3 = new Button("ˇ");
-        HBox hbdown3 = new HBox(50);
+        grid.add(intellgince, 115, 18,1,2);
+        Button down3 = new Button("▽");
+        HBox hbdown3 = new HBox(10);
         hbdown3.getChildren().add(down3);
-        grid.add(hbdown3, 0, 9);
+        grid.add(hbdown3, 116, 19);
         down3.setOnAction(e-> decrease(usedPoints,intelligencePoints));
 
 
         //4.Constitution
 
         final Label constitutionPoints = new Label("0");
-        grid.add(constitutionPoints, 3, 2);
+        grid.add(constitutionPoints, 121, 12,1,2);
         constitutionPoints.setAlignment(Pos.CENTER);
         constitutionPoints.setTextFill(Color.BLACK);
         constitutionPoints.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
-        Button up4 = new Button("^");
-        HBox hbUp4 = new HBox(50);
+        Button up4 = new Button("△");
+        HBox hbUp4 = new HBox(10);
         hbUp4.getChildren().add(up4);
-        grid.add(hbUp4, 2, 1);
+        grid.add(hbUp4, 120, 12);
         up4.setOnAction(e-> increase(usedPoints,constitutionPoints));
         Label constitution = new Label("Kitartás");
         constitution .setTextFill(Color.WHITE);
-        grid.add(constitution , 2, 2);
-        Button down4 = new Button("ˇ");
-        HBox hbdown4 = new HBox(50);
+        grid.add(constitution , 119, 12,1,2);
+        Button down4 = new Button("▽");
+        HBox hbdown4 = new HBox(10);
         hbdown4.getChildren().add(down4);
-        grid.add(hbdown4, 2, 3);
+        grid.add(hbdown4, 120, 13);
         down4.setOnAction(e-> decrease(usedPoints,constitutionPoints));
 
 
         //5. Luck
 
         final Label luckPoints = new Label("0");
-        grid.add(luckPoints, 3, 5);
+        grid.add(luckPoints, 121, 16,1,2);
         luckPoints.setAlignment(Pos.CENTER);
         luckPoints.setTextFill(Color.BLACK);
         luckPoints.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
-        Button up5 = new Button("^");
-        HBox hbUp5 = new HBox(50);
+        Button up5 = new Button("△");
+        HBox hbUp5 = new HBox(10);
         hbUp5.getChildren().add(up5);
-        grid.add(hbUp5, 2, 4);
+        grid.add(hbUp5, 120, 15);
         up5.setOnAction(e-> increase(usedPoints,luckPoints));
         Label luck = new Label("Szerencse");
         luck.setTextFill(Color.WHITE);
-        grid.add(luck, 2, 5);
-        Button down5 = new Button("ˇ");
-        HBox hbdown5 = new HBox(50);
+        grid.add(luck, 119, 16,1,2);
+        Button down5 = new Button("▽");
+        HBox hbdown5 = new HBox(10);
         hbdown5.getChildren().add(down5);
-        grid.add(hbdown5, 2, 6);
+        grid.add(hbdown5, 120, 17);
         down5.setOnAction(e-> decrease(usedPoints,luckPoints));
 
         Button create = new Button("Karakter létrehozása");
-        HBox hbCreate = new HBox(50);
+        HBox hbCreate = new HBox(10);
         hbCreate.getChildren().add(create);
-        grid.add(hbCreate, 2, 7);
+        grid.add(hbCreate, 120, 25);
         create.setOnAction(e-> {if((parseInt(usedPoints.getText()))==maxPoints) {
             int Id=create(data, strengthPoints,dexterityPoints,intelligencePoints,constitutionPoints,luckPoints);
             DataHandler save=new DataHandler();
@@ -341,23 +353,15 @@ public class HelloWorld extends Application {
         }
         //TODO Megjelnő villogás, nem lehet
         });
-
-
-        //TODO Image over background
-        GridPane leftGrid = new GridPane();
-        leftGrid.setAlignment(Pos.CENTER_LEFT);
-        leftGrid.setHgap(10);
-        leftGrid.setVgap(10);
-        leftGrid.setPadding(new Insets(25, 25, 25, 25));
-        leftGrid.add(new ImageView(new Image("\\pictures\\"+data.get(1)+".jpg")),0,0);
-
+        String path="\\pictures\\"+data.get(1)+".jpg";
+        HBox image=new HBox(new ImageView(new Image(path,450,750,false,false)));
+        grid.add(image,25,10, 10,15);
         Scene scene = new Scene(grid, 1920, 1080);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
     //TODO Táblaértékek megjelenítése
     public void chooseCharacter(){
-        music();
         Stage secondaryStage=new Stage();
         Scene scene = new Scene(new Group(), 1366,768);
         secondaryStage.setTitle("Karakterválasztó");
@@ -420,10 +424,10 @@ public class HelloWorld extends Application {
 
     public void CharInfo(Stage primaryStage, int id){
         GridPane grid = new GridPane();
-        grid.setAlignment(Pos.CENTER_RIGHT);
+        grid.setAlignment(Pos.CENTER);
         grid.setHgap(15);
         grid.setVgap(15);
-        grid.setPadding(new Insets(25, 350, 25, 25));
+        grid.setPadding(new Insets(25, 25, 25, 25));
         BackgroundImage myBI = new BackgroundImage(new Image("\\pictures\\logo.jpg", 1920, 1080, false, true),
                 BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, true, true, true, true));
         grid.setBackground(new Background(myBI));
@@ -536,17 +540,9 @@ public class HelloWorld extends Application {
         hbCreate.getChildren().add(create);
         grid.add(hbCreate, 4, 7);
         create.setOnAction(e-> menu(primaryStage));
-
-
         Scene scene = new Scene(grid, 1920, 1080);
         primaryStage.setScene(scene);
         primaryStage.show();
-
-
-
-
-
-
     }
     public void increase(Label usedPoints, Label actualPoints){
         if((parseInt(usedPoints.getText())<maxPoints)&(parseInt(actualPoints.getText())<maxSkillPoints)) {
@@ -560,7 +556,6 @@ public class HelloWorld extends Application {
             actualPoints.setText(String.valueOf(parseInt(actualPoints.getText()) - 1));
         }
     }
-
     public int create(ArrayList<String> data, Label strengthPoints,Label dexterityPoints,Label intelligencePoints,Label constitutionPoints,Label luckPoints ){
         int characterId=0;
         ArrayList<String> charData=new ArrayList<>();
@@ -576,22 +571,5 @@ public class HelloWorld extends Application {
         if((characterId=creator.newCharacter(charData))!=0){
         return characterId;}
         else return 0;
-    }
-    public void music(){
-        final Task task = new Task() {
-            @Override
-            protected Object call() throws Exception {
-                int s = INDEFINITE;
-                Media media = new Media(new File("lotr.mp3").toURI().toString());
-                MediaPlayer mediaPlayer = new MediaPlayer(media);
-                mediaPlayer.setAutoPlay(true);
-                mediaPlayer.setCycleCount(s);
-                mediaPlayer.setOnEndOfMedia(() -> mediaPlayer.seek(Duration.ZERO));
-                mediaPlayer.play();
-                return null;
-            }
-        };
-        Thread thread = new Thread(task);
-        thread.start();
     }
 }
