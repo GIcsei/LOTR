@@ -422,21 +422,23 @@ public class Main extends Application {
         ((Group) scene.getRoot()).getChildren().addAll(vbox);
         secondaryStage.setScene(scene);
         secondaryStage.show();
-        table.setOnMousePressed(event -> {
-            if (event.isPrimaryButtonDown()) {
-                Node node = ((Node) event.getTarget()).getParent();
-                TableRow row;
-                if (node instanceof TableRow) {
-                    row = (TableRow) node;
-                } else {
-                    // clicking on text part
-                    row = (TableRow) node.getParent();
+        table.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                if (event.isPrimaryButtonDown()) {
+                    Node node = ((Node) event.getTarget()).getParent();
+                    TableRow row;
+                    if (node instanceof TableRow) {
+                        row = (TableRow) node;
+                    } else {
+                        // clicking on text part
+                        row = (TableRow) node.getParent();
+                    }
+                    Character index=(Character)row.getItem();
+                    int id=list.getCharId(index.getName());
+                    setup.Saver(id);
+                    secondaryStage.close();
                 }
-                //TODO
-                int index = (row.getIndex());
-                int id=list.getCharId(data.get(index).getName());
-                setup.Saver(id);
-                secondaryStage.close();
             }
         });
 

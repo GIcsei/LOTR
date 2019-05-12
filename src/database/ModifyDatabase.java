@@ -123,7 +123,7 @@ public class ModifyDatabase {
         }
         String connectionString = "jdbc:sqlite:races.db";
         try(Connection conn = DriverManager.getConnection(connectionString)) {
-            String sql = "SELECT Id from Characters where Id=?";
+            String sql = "SELECT Id from Characters where Name=?";
             try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
                 pstmt.setString(1, name);
                 ResultSet rs = pstmt.executeQuery();
