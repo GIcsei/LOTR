@@ -4,14 +4,124 @@
     <option name="SCOPE_TYPE" value="8" />
     <option name="CUSTOM_SCOPE_NAME" value="Module 'LOTR'" />
   </component>
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="LOTR" />
+      <artifact name="Lotr" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="62c36f8c-be74-446f-8565-bfdf6fd869d1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/classpath-include" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/dependencies/APACHE-LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/dependencies/CDDL-LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/dependencies/css/maven-base.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/dependencies/css/maven-theme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/dependencies/css/print.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/dependencies/css/site.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/dependencies/google-api-client-android-dependencies.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/dependencies/google-api-client-appengine-dependencies.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/dependencies/google-api-client-dependencies.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/dependencies/google-api-client-gson-dependencies.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/dependencies/google-api-client-jackson2-dependencies.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/dependencies/google-api-client-java6-dependencies.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/dependencies/google-api-client-servlet-dependencies.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/dependencies/google-http-client-android-dependencies.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/dependencies/google-http-client-appengine-dependencies.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/dependencies/google-http-client-dependencies.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/dependencies/google-http-client-gson-dependencies.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/dependencies/google-http-client-jackson2-dependencies.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/dependencies/google-http-client-jdo-dependencies.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/dependencies/google-oauth-client-appengine-dependencies.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/dependencies/google-oauth-client-dependencies.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/dependencies/google-oauth-client-java6-dependencies.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/dependencies/google-oauth-client-jetty-dependencies.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/dependencies/google-oauth-client-servlet-dependencies.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/dependencies/images/close.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/dependencies/images/collapsed.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/dependencies/images/expanded.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/dependencies/images/external.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/dependencies/images/icon_error_sml.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/dependencies/images/icon_info_sml.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/dependencies/images/icon_success_sml.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/dependencies/images/icon_warning_sml.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/dependencies/images/logos/build-by-maven-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/dependencies/images/logos/build-by-maven-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/dependencies/images/logos/maven-feather.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/dependencies/images/newwindow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/descriptor.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/google-api-services-drive-v3-rev161-1.25.0-javadoc.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/google-api-services-drive-v3-rev161-1.25.0-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/google-api-services-drive-v3-rev161-1.25.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/google-api-services-drive-v3-rev161-1.25.0.jar.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs-sources/google-api-client-1.25.0-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs-sources/google-api-client-android-1.25.0-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs-sources/google-api-client-appengine-1.25.0-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs-sources/google-api-client-gson-1.25.0-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs-sources/google-api-client-jackson2-1.25.0-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs-sources/google-api-client-java6-1.25.0-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs-sources/google-api-client-servlet-1.25.0-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs-sources/google-http-client-1.25.0-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs-sources/google-http-client-android-1.25.0-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs-sources/google-http-client-appengine-1.25.0-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs-sources/google-http-client-gson-1.25.0-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs-sources/google-http-client-jackson2-1.25.0-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs-sources/google-http-client-jdo-1.25.0-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs-sources/google-oauth-client-1.25.0-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs-sources/google-oauth-client-appengine-1.25.0-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs-sources/google-oauth-client-java6-1.25.0-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs-sources/google-oauth-client-jetty-1.25.0-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs-sources/google-oauth-client-servlet-1.25.0-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs-sources/gson-2.1-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs-sources/httpclient-4.5.5-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs-sources/jackson-core-2.9.6-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs-sources/jdo2-api-2.3-eb-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs-sources/jetty-6.1.26-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs-sources/jetty-util-6.1.26-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs-sources/transaction-api-1.1-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs/google-api-client-1.25.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs/google-api-client-1.25.0.jar.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs/google-api-client-android-1.25.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs/google-api-client-android-1.25.0.jar.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs/google-api-client-appengine-1.25.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs/google-api-client-gson-1.25.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs/google-api-client-jackson2-1.25.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs/google-api-client-java6-1.25.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs/google-api-client-servlet-1.25.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs/google-http-client-1.25.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs/google-http-client-1.25.0.jar.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs/google-http-client-android-1.25.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs/google-http-client-android-1.25.0.jar.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs/google-http-client-appengine-1.25.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs/google-http-client-gson-1.25.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs/google-http-client-gson-1.25.0.jar.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs/google-http-client-jackson2-1.25.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs/google-http-client-jackson2-1.25.0.jar.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs/google-http-client-jdo-1.25.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs/google-http-client-jdo-1.25.0.jar.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs/google-oauth-client-1.25.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs/google-oauth-client-1.25.0.jar.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs/google-oauth-client-appengine-1.25.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs/google-oauth-client-java6-1.25.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs/google-oauth-client-jetty-1.25.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs/google-oauth-client-servlet-1.25.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs/gson-2.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs/gson-2.1.jar.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs/httpclient-4.5.5.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs/jackson-core-2.9.6.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs/jackson-core-2.9.6.jar.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs/jdo2-api-2.3-eb.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs/jetty-6.1.26.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs/jetty-util-6.1.26.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs/jsr305-3.0.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/libs/transaction-api-1.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/proguard-google-api-client.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive/readme.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lastUsedCharacter.properties" beforeDir="false" afterPath="$PROJECT_DIR$/lastUsedCharacter.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pictures/priest.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pictures/scout.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pictures/wariior.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/maven.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,24 +134,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="696">
-              <caret line="185" column="38" selection-start-line="185" selection-start-column="38" selection-end-line="185" selection-end-column="38" />
+            <state relative-caret-position="765">
+              <caret line="550" column="13" selection-start-line="550" selection-start-column="13" selection-end-line="550" selection-end-column="13" />
               <folding>
                 <element signature="docComment;field#maxPoints#0;class#Main#0" />
-                <element signature="e#1701#1819#0" />
                 <element signature="method#start#0;class#Main#0" />
-                <element signature="e#2355#2718#0" expanded="true" />
-                <element signature="e#2717#2718#0" expanded="true" />
+                <element signature="e#2664#2665#0" expanded="true" />
                 <element signature="e#2692#2693#0" expanded="true" />
                 <element signature="docComment;method#menu#0;class#Main#0" />
-                <element signature="e#3519#3563#0" />
+                <element signature="method#menu#0;class#Main#0" />
                 <element signature="docComment;method#generateCharacter#0;class#Main#0" />
                 <element signature="method#generateCharacter#0;class#Main#0" />
                 <element signature="docComment;method#details#0;class#Main#0" />
-                <element signature="method#details#0;class#Main#0" />
                 <element signature="docComment;method#chooseCharacter#0;class#Main#0" />
                 <element signature="docComment;method#CharInfo#0;class#Main#0" />
                 <element signature="method#CharInfo#0;class#Main#0" />
@@ -53,6 +160,15 @@
                 <element signature="docComment;method#createBlinker#0;class#Main#0" />
                 <element signature="method#createBlinker#0;class#Main#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/engine/DataHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="22" column="51" selection-start-line="22" selection-start-column="51" selection-end-line="22" selection-end-column="51" />
             </state>
           </provider>
         </entry>
@@ -87,16 +203,15 @@
       <list>
         <option value="$PROJECT_DIR$/src/main/java/DriveQuickstart.java" />
         <option value="$PROJECT_DIR$/src/engine/Character.java" />
-        <option value="$PROJECT_DIR$/src/engine/DataHandler.java" />
         <option value="$PROJECT_DIR$/src/database/ModifyDatabase.java" />
         <option value="$PROJECT_DIR$/lastUsedCharacter.properties" />
+        <option value="$PROJECT_DIR$/src/engine/DataHandler.java" />
         <option value="$PROJECT_DIR$/src/main/Main.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="1" />
+    <option name="x" value="-9" />
     <option name="width" value="1440" />
     <option name="height" value="876" />
   </component>
@@ -105,6 +220,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -146,15 +262,14 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
@@ -218,9 +333,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="2575" height="1415" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25765407" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2640159" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -229,7 +343,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.088074826" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.088074826" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3998441" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -277,20 +391,8 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/DriveQuickstart.java" />
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml" />
     <entry file="file://$PROJECT_DIR$/drive.json" />
-    <entry file="file://$PROJECT_DIR$/maven.iml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/engine/DataHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/engine/Character.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -312,30 +414,21 @@
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/groovy/groovy_console.groovy">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/lastUsedCharacter.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/maven.iml" />
     <entry file="file://$PROJECT_DIR$/src/main/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="696">
-          <caret line="185" column="38" selection-start-line="185" selection-start-column="38" selection-end-line="185" selection-end-column="38" />
+        <state relative-caret-position="765">
+          <caret line="550" column="13" selection-start-line="550" selection-start-column="13" selection-end-line="550" selection-end-column="13" />
           <folding>
             <element signature="docComment;field#maxPoints#0;class#Main#0" />
-            <element signature="e#1701#1819#0" />
             <element signature="method#start#0;class#Main#0" />
-            <element signature="e#2355#2718#0" expanded="true" />
-            <element signature="e#2717#2718#0" expanded="true" />
+            <element signature="e#2664#2665#0" expanded="true" />
             <element signature="e#2692#2693#0" expanded="true" />
             <element signature="docComment;method#menu#0;class#Main#0" />
-            <element signature="e#3519#3563#0" />
+            <element signature="method#menu#0;class#Main#0" />
             <element signature="docComment;method#generateCharacter#0;class#Main#0" />
             <element signature="method#generateCharacter#0;class#Main#0" />
             <element signature="docComment;method#details#0;class#Main#0" />
-            <element signature="method#details#0;class#Main#0" />
             <element signature="docComment;method#chooseCharacter#0;class#Main#0" />
             <element signature="docComment;method#CharInfo#0;class#Main#0" />
             <element signature="method#CharInfo#0;class#Main#0" />
@@ -350,16 +443,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lastUsedCharacter.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/engine/DataHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="22" column="51" selection-start-line="22" selection-start-column="51" selection-end-line="22" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
   </component>
   <component name="masterDetails">
     <states>
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>LOTR</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
