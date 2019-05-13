@@ -2,14 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="62c36f8c-be74-446f-8565-bfdf6fd869d1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lastUsedCharacter.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lotr.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/races.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/LOTR.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/LOTR.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/drive.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/database/ModifyDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/ModifyDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/Character.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine/DataHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine/DataHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DriveQuickstart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DriveQuickstart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DriveQuickstart.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/client_secret.json" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,72 +27,28 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4465">
-              <caret line="424" column="60" lean-forward="true" selection-start-line="424" selection-start-column="60" selection-end-line="424" selection-end-column="60" />
+            <state relative-caret-position="221">
+              <caret line="45" column="7" lean-forward="true" selection-start-line="45" selection-start-column="7" selection-end-line="45" selection-end-column="7" />
               <folding>
-                <element signature="e#2145#2526#0" expanded="true" />
-                <element signature="e#2525#2526#0" expanded="true" />
+                <element signature="docComment;field#maxPoints#0;class#Main#0" />
+                <element signature="method#start#0;class#Main#0" />
+                <element signature="e#2315#2696#0" expanded="true" />
+                <element signature="e#2695#2696#0" expanded="true" />
+                <element signature="docComment;method#menu#0;class#Main#0" />
+                <element signature="method#menu#0;class#Main#0" />
+                <element signature="docComment;method#generateCharacter#0;class#Main#0" />
+                <element signature="method#generateCharacter#0;class#Main#0" />
+                <element signature="docComment;method#details#0;class#Main#0" />
+                <element signature="docComment;method#chooseCharacter#0;class#Main#0" />
+                <element signature="method#chooseCharacter#0;class#Main#0" />
+                <element signature="docComment;method#CharInfo#0;class#Main#0" />
                 <element signature="method#CharInfo#0;class#Main#0" />
+                <element signature="docComment;method#increase#0;class#Main#0" />
+                <element signature="method#increase#0;class#Main#0" />
+                <element signature="method#decrease#0;class#Main#0" />
+                <element signature="docComment;method#create#0;class#Main#0" />
+                <element signature="method#create#0;class#Main#0" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/database/ModifyDatabase.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="125" column="62" selection-start-line="125" selection-start-column="62" selection-end-line="125" selection-end-column="62" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lastUsedCharacter.properties">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$APPLICATION_HOME_DIR$/lib/sqlite-jdbc-3.21.0.1.jar!/org/sqlite/jdbc3/JDBC3ResultSet.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="54" selection-start-line="54" selection-end-line="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/DriveQuickstart.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/engine/DataHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="36" column="39" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/engine/Character.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="73" column="28" selection-start-line="73" selection-start-column="28" selection-end-line="73" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/javafx/beans/property/StringPropertyBase.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
-              <caret line="129" selection-start-line="129" selection-end-line="129" />
             </state>
           </provider>
         </entry>
@@ -100,10 +58,23 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GroovyConsoleState">
+    <option name="list">
+      <list>
+        <Entry>
+          <option name="url" value="file://$APPLICATION_CONFIG_DIR$/consoles/groovy/groovy_console.groovy" />
+          <option name="moduleName" value="LOTR" />
+          <option name="title" value="LOTR (Groovy 2.4.15)" />
+        </Entry>
+      </list>
+    </option>
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/main/java/DriveQuickstart.java" />
+        <option value="$PROJECT_DIR$/src/engine/Character.java" />
+        <option value="$PROJECT_DIR$/src/engine/DataHandler.java" />
         <option value="$PROJECT_DIR$/src/database/ModifyDatabase.java" />
         <option value="$PROJECT_DIR$/src/main/Main.java" />
       </list>
@@ -119,6 +90,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -160,7 +132,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -220,10 +191,20 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="2575" height="1415" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25367793" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25566602" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -236,8 +217,8 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3998441" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.13328137" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32969603" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Messages" order="10" />
@@ -256,7 +237,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/database/ModifyDatabase.java</url>
-          <line>129</line>
+          <line>158</line>
           <properties />
           <option name="timeStamp" value="10" />
         </line-breakpoint>
@@ -265,33 +246,8 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/database/Modifiers.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/DriveQuickstart.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/engine/DataHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="36" column="39" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/javafx/beans/property/StringPropertyBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="129" selection-start-line="129" selection-end-line="129" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/engine/Character.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="73" column="28" selection-start-line="73" selection-start-column="28" selection-end-line="73" selection-end-column="28" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/lastUsedCharacter.properties">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/sqlite-jdbc-3.21.0.1.jar!/org/sqlite/jdbc3/JDBC3ResultSet.class">
       <provider selected="true" editor-type-id="text-editor">
@@ -300,24 +256,80 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/database/ModifyDatabase.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/javafx/beans/property/StringPropertyBase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="125" column="62" selection-start-line="125" selection-start-column="62" selection-end-line="125" selection-end-column="62" />
+        <state relative-caret-position="1632">
+          <caret line="129" selection-start-line="129" selection-end-line="129" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lastUsedCharacter.properties">
+    <entry file="file://$PROJECT_DIR$/src/main/java/DriveQuickstart.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/drive.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/maven.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/engine/DataHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/engine/Character.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding>
+            <element signature="e#2637#2638#0" expanded="true" />
+            <element signature="e#2682#2683#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/database/ModifyDatabase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3995">
+          <caret line="240" column="24" selection-start-line="240" selection-start-column="24" selection-end-line="240" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/groovy/groovy_console.groovy">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4465">
-          <caret line="424" column="60" lean-forward="true" selection-start-line="424" selection-start-column="60" selection-end-line="424" selection-end-column="60" />
+        <state relative-caret-position="221">
+          <caret line="45" column="7" lean-forward="true" selection-start-line="45" selection-start-column="7" selection-end-line="45" selection-end-column="7" />
           <folding>
-            <element signature="e#2145#2526#0" expanded="true" />
-            <element signature="e#2525#2526#0" expanded="true" />
+            <element signature="docComment;field#maxPoints#0;class#Main#0" />
+            <element signature="method#start#0;class#Main#0" />
+            <element signature="e#2315#2696#0" expanded="true" />
+            <element signature="e#2695#2696#0" expanded="true" />
+            <element signature="docComment;method#menu#0;class#Main#0" />
+            <element signature="method#menu#0;class#Main#0" />
+            <element signature="docComment;method#generateCharacter#0;class#Main#0" />
+            <element signature="method#generateCharacter#0;class#Main#0" />
+            <element signature="docComment;method#details#0;class#Main#0" />
+            <element signature="docComment;method#chooseCharacter#0;class#Main#0" />
+            <element signature="method#chooseCharacter#0;class#Main#0" />
+            <element signature="docComment;method#CharInfo#0;class#Main#0" />
             <element signature="method#CharInfo#0;class#Main#0" />
+            <element signature="docComment;method#increase#0;class#Main#0" />
+            <element signature="method#increase#0;class#Main#0" />
+            <element signature="method#decrease#0;class#Main#0" />
+            <element signature="docComment;method#create#0;class#Main#0" />
+            <element signature="method#create#0;class#Main#0" />
           </folding>
         </state>
       </provider>

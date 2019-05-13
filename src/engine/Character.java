@@ -5,23 +5,22 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 public class Character implements  java.io.Serializable{
-    /*Egy karakternek az alábbi tulajdonságokkal kell rendelkeznie
+    /**Egy karakternek az alábbi tulajdonságokkal kell rendelkeznie
      *Karakter kreálásakor ezek a legfőbb tulajdonságok, majd ehhez még jönnek
      * az osztályspecifikus módosítók
      */
-    // Character details
+    /**Mivel egy karakter csak egy kasztot és fajt valósíthat meg,
+     *  így enumban érdemes tárolni őket
+     */
     private final SimpleStringProperty name=new SimpleStringProperty("");
     private Classes characterClass;
     private Races race;
-    // Attributes
     private final SimpleIntegerProperty strength=new SimpleIntegerProperty(0);
     private final SimpleIntegerProperty dexterity=new SimpleIntegerProperty(0);
     private final SimpleIntegerProperty intelligence=new SimpleIntegerProperty(0);
     private final SimpleIntegerProperty constitution=new SimpleIntegerProperty(0);
     private final SimpleIntegerProperty luck=new SimpleIntegerProperty(0);
-    // Progress
     private final SimpleIntegerProperty experiencePoints=new SimpleIntegerProperty(0);
-
     private final SimpleIntegerProperty level=new SimpleIntegerProperty(0);
     public enum Classes {
         Warrior("Warrior"), Scout("Scout"), Mage("Mage");
@@ -43,18 +42,11 @@ public class Character implements  java.io.Serializable{
         }
     }
 
+    /**Egyszerű getterek és settterek,
+     * valamint konstruktor
+     */
+
     public Character(){}
-    public Character(String name, int strength, int dexterity, int intelligence, int constitution, int luck, int experiencePoints, int level, Classes characterClass){
-        this.characterClass = characterClass;
-        this.name.set(name);
-        this.strength.set(strength);
-        this.dexterity.set(dexterity);
-        this.intelligence.set(intelligence);
-        this.constitution.set(constitution);
-        this.luck.set(luck);
-        this.experiencePoints.set(experiencePoints);
-        this.level.set(level);
-    }
     public Classes getCharacterClass() {
         return characterClass;
     }

@@ -6,7 +6,6 @@ import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -19,42 +18,36 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
-import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import engine.Character.*;
-import javafx.util.Callback;
-import javafx.util.Duration;
-import sun.audio.AudioData;
-import sun.audio.AudioPlayer;
-import sun.audio.AudioStream;
-import sun.audio.ContinuousAudioDataStream;
-
-import javax.xml.crypto.Data;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.util.ArrayList;
-
 import static java.lang.Integer.parseInt;
-import static javafx.scene.media.MediaPlayer.INDEFINITE;
 
 public class Main extends Application {
-    public static final int maxPoints=75;
-    public static final int maxSkillPoints=20;
+    /**
+     * Szükséges konstansok, tagváltozók, amelyeket többször
+     * is felhasználhatunk a későbbiekben
+     */
+    private static final int maxPoints=75;
+    private static final int maxSkillPoints=20;
     private TableView table = new TableView();
     private static MediaPlayer mediaPlayer;
     private final ModifyDatabase list =new ModifyDatabase();
-    private final ObservableList<Character> data=FXCollections.observableArrayList();
     private final ArrayList<Character> characters=list.getCharacters();
     private final DataHandler setup=new DataHandler();
 
+    /**
+     * A program elindításáért és a zenelejátszásért felelős
+     * függvények.
+     * @param primaryStage
+     */
     @Override
     public void start(Stage primaryStage) {
         primaryStage.setTitle("LOTR Karakteralkotó");
@@ -73,9 +66,16 @@ public class Main extends Application {
         thread.start();
         menu(primaryStage);
     }
+
     public static void main(String[] args) {
         launch(args);
     }
+
+    /**
+     * A menü létrehozásáért felelős
+     * @param primaryStage
+     */
+
     public void menu(Stage primaryStage) {
         DataHandler load=new DataHandler();
         GridPane grid = new GridPane();
@@ -147,6 +147,14 @@ public class Main extends Application {
         primaryStage.show();
 
     }
+
+    /**
+     * Ahogy  a neve is utal rá, a menüből ide irányít át,
+     * és létrehozhatunk egy új karaktert
+     * A művelet kétlépcsős, ez az első fázis
+     * Név megadása, faj és osztály kiválasztása
+     * @param primaryStage
+     */
     public void generateCharacter(Stage primaryStage){
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.TOP_LEFT);
@@ -212,6 +220,16 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
+
+    /**
+     * A generateCharacter folytatása
+     * Az előzöek kiválasztása után itt megadhatjuk a tulajdonságokat
+     * megj pedig elmenthetjük a karakterünket
+     * Az itt utoljára elvégzett mentés lesz a default karakter
+     * @param primaryStage
+     * @param data
+     */
+
     public void details(Stage primaryStage, ArrayList<String> data) {
         GridPane grid = new GridPane();
         grid.setGridLinesVisible(true);
@@ -357,16 +375,27 @@ public class Main extends Application {
             save.Saver(Id);
             menu(primaryStage);
         }
-            //TODO Megjelnő villogás, nem lehet
+            //TODO Megjelnő villogás ha nem osztottuk ki az összes értéket else{}
+            //TODO hiba esetén elveti a módosítást és visszadobb a főoldalra throw exception handling
         });
+
         String path="\\pictures\\"+data.get(1)+".jpg";
         HBox image=new HBox(new ImageView(new Image(path,450,750,false,false)));
         grid.add(image,25,10, 10,15);
         Scene scene = new Scene(grid, 1920, 1080);
         primaryStage.setScene(scene);
         primaryStage.show();
+
     }
+
+    /**
+     * A korábban létrehozott karaktereket listázza ki táblázatban
+     * Ha egyre rákattintunk (egyszer!), akkor onnantól fogva az lesz a
+     * default karakter, majd pedig bezárja az ablakot és visszatérünk a
+     * főoldalra
+      */
     public void chooseCharacter(){
+        ObservableList<Character> data=FXCollections.observableArrayList();
         Stage secondaryStage=new Stage();
         Scene scene = new Scene(new Group(), 1366,768);
         secondaryStage.setTitle("Karakterválasztó");
@@ -406,6 +435,7 @@ public class Main extends Application {
         TableColumn LevCol = new TableColumn("Aktuális Szint");
         LevCol.setCellValueFactory(new PropertyValueFactory<Character, Integer>("level"));
         LevCol.setMinWidth(137);
+
         final VBox vbox = new VBox();
         data.addAll(characters);
         vbox.setSpacing(5);
@@ -414,6 +444,7 @@ public class Main extends Application {
         BackgroundImage myBI = new BackgroundImage(new Image("\\pictures\\logo.jpg", 1920, 1080, false, true),
                 BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, true, true, true, false));
         vbox.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, Insets.EMPTY)));
+
         table.setItems(data);
         table.setEditable(false);
         table.getColumns().addAll(NameCol,LevCol,ClassCol,RaceCol,StrCol,DexCol,IntCol,ConCol,LckCol,ExpCol);
@@ -422,6 +453,10 @@ public class Main extends Application {
         ((Group) scene.getRoot()).getChildren().addAll(vbox);
         secondaryStage.setScene(scene);
         secondaryStage.show();
+
+        /**
+         * A kattintás esetén végrehajtandó művelet megvalósítása
+         */
         table.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -441,8 +476,15 @@ public class Main extends Application {
                 }
             }
         });
-
     }
+
+    /**
+     * Default karakterről írja ki az összes elérhető információt
+     * Lehetőség van visszatérni a főoldalra a Vissza gomb megnyomása után,
+     * mivel alapjáraton ez csak egy információs felület
+     * @param primaryStage
+     * @param id
+     */
     public void CharInfo(Stage primaryStage, int id){
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
@@ -508,9 +550,6 @@ public class Main extends Application {
         CharExp.setAlignment(Pos.CENTER);
         grid.add(CharExp, 1, 5);
 
-
-        //5. Luck
-
         Label charStr=new Label("Erő: ");
         grid.add(charStr, 3, 1);
         charStr.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
@@ -565,6 +604,16 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
+
+    /**
+     * Segédfüggvények, hogy számon tudjuk ratani a details oldalon,
+     * hogy mi történt kattintás esetén, íggy biztosíthatjuk,
+     * hogy nem kerülünk negatív pontszámba és nem lépjük túl az előre
+     * megadott maximális pontszámot
+     * @param usedPoints
+     * @param actualPoints
+     */
+
     public void increase(Label usedPoints, Label actualPoints){
         if((parseInt(usedPoints.getText())<maxPoints)&(parseInt(actualPoints.getText())<maxSkillPoints)) {
             usedPoints.setText(String.valueOf(parseInt(usedPoints.getText()) + 1));
@@ -577,6 +626,20 @@ public class Main extends Application {
             actualPoints.setText(String.valueOf(parseInt(actualPoints.getText()) - 1));
         }
     }
+
+    /**
+     * Létrehozza a detailsben és generateCharacterben megadott
+     * értékek alapján a karaktert, valamint implementálja
+     * azt az adatbázisba. (Lehet, hogy sokszor adom át az id-t,
+     * de itt garantáltan történik egy hibaellenőrzés)
+     * @param data
+     * @param strengthPoints
+     * @param dexterityPoints
+     * @param intelligencePoints
+     * @param constitutionPoints
+     * @param luckPoints
+     * @return
+     */
     public int create(ArrayList<String> data, Label strengthPoints,Label dexterityPoints,Label intelligencePoints,Label constitutionPoints,Label luckPoints ){
         int characterId=0;
         ArrayList<String> charData=new ArrayList<>();

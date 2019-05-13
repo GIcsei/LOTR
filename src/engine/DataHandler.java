@@ -7,6 +7,12 @@ import java.util.Properties;
 
 
 public class DataHandler {
+    /**A properties-ért felelős osztály
+     * Alapvetően két értéket tárolunk:
+     * Az utoljára készített/használt karakter Id-ját,
+     * így azt szabadon betölthetjük, valamint az aktuális
+     * verziószámot, amit megjelenítünk a kezdőképernyőn
+     */
 
     private static final String MY_KEY = "character_id";
     private static final String MY_KEY2 = "Version_Number";

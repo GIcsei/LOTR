@@ -7,7 +7,21 @@ import java.util.ArrayList;
 
 import static java.lang.Integer.parseInt;
 
+
+
 public class ModifyDatabase {
+    /**Az adatbázis manipulációért felelős osztály
+     *
+     */
+    /**
+     * A különböző módosítók (osztály, faj) két különböző adatbázisban
+     * vannak eltárolva, így azokat a nevek alapján tudjuk megkeresni
+     * Mivel csak legördülő listából választhat a user, így elvileg
+     * nem kell attól félni, hogy az adatbázisban nem szereplő nevet választ ki
+     * (Azért van hibakezelés, mert a fejlesztő is elronthatja)
+     * @param className
+     * @return
+     */
     public ArrayList<Integer> getClassModifiers(String className){
         ArrayList<Integer> modifier=new ArrayList<>();
             try {
@@ -71,6 +85,14 @@ public class ModifyDatabase {
         return modifier;
     }
 
+    /**
+     * Új karakter adatbázisba illesztéséért felelős
+     * Mindig visszaadja a generált sor Id-ját,
+     * így a properties tárolhatja, hogy melyik karaktert
+     * hoztuk utoljára létre
+     * @param data
+     * @return
+     */
     public int newCharacter(ArrayList<String> data){
         int characterId=0;
         ArrayList<Integer> rc=getRaceModifiers(data.get(2));
@@ -114,6 +136,13 @@ public class ModifyDatabase {
     return characterId;
     }
 
+    /**
+     * Abban az esetben, ha már korábbi karaktert szeretnénk betölteni,
+     * úgy szükséges megtudni az Id-ját. Ezt is a properties fogja elmenteni
+     * ezért szükséges int-et visszaadni
+     * @param name
+     * @return
+     */
     public int getCharId(String name){
         int characterId=0;
         try {
@@ -144,6 +173,14 @@ public class ModifyDatabase {
         return characterId;
     }
 
+    /**
+     * A módosítok hatására kialakult végső pontszámokat számolja ki
+     * Segédfüggvény
+     * @param data
+     * @param rc
+     * @param cl
+     * @return
+     */
     public ArrayList<Integer> FinalPoints(ArrayList<String> data,ArrayList<Integer> rc,ArrayList<Integer> cl){
         ArrayList<Integer> finalPoints=new ArrayList<>();
         for (int i=3;i<data.size();i++){
@@ -152,7 +189,12 @@ public class ModifyDatabase {
         return finalPoints;
     }
 
-
+    /**
+     * A táblázat kirajzolásához szükséges, az összes karaktert kiolvassa
+     * és azokat egy collection-ben tárolja
+     *
+     * @return
+     */
     public ArrayList<Character> getCharacters(){
         Character character=new Character();
         ArrayList<Character> characters=new ArrayList<>();
@@ -192,6 +234,14 @@ public class ModifyDatabase {
         }
         return characters;
     }
+
+    /**
+     * Karakterkiválasztáskor lekérdezi az adatbázisból
+     * id alapján a karakter összes adatát és
+     * visszaadja azokat
+     * @param id
+     * @return
+     */
     public Character getCharacter(int id){
         Character character=new Character();
         try {
