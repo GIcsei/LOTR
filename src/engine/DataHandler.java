@@ -20,7 +20,7 @@ public class DataHandler {
         Properties lastUsedCharacter = new Properties();
         lastUsedCharacter.setProperty(MY_KEY, (new String().valueOf(id)));
         System.out.println(lastUsedCharacter.getProperty(MY_KEY, "0"));
-        lastUsedCharacter.setProperty(MY_KEY2, "0.9");
+        lastUsedCharacter.setProperty(MY_KEY2, "1.0");
         try {
               lastUsedCharacter.store(new FileOutputStream("lastUsedCharacter.properties"), "Utoljára kimentett karakter Id-ja");
         } catch (IOException e) {

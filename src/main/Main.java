@@ -2,6 +2,7 @@ package main;
 import database.ModifyDatabase;
 import engine.Character;
 import engine.DataHandler;
+import javafx.animation.*;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -29,6 +30,8 @@ import javafx.scene.transform.Scale;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import engine.Character.*;
+import javafx.util.Duration;
+
 import java.io.File;
 import java.util.ArrayList;
 import static java.lang.Integer.parseInt;
@@ -48,6 +51,9 @@ public class Main extends Application {
     private ColumnConstraints column = new ColumnConstraints();
     private RowConstraints row = new RowConstraints();
 
+
+
+
     /**
      * A program elindításáért és a zenelejátszásért felelős
      * függvények.
@@ -57,9 +63,9 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
         primaryStage.setTitle("LOTR Karakteralkotó");
         primaryStage.getIcons().add(new Image("\\pictures\\logo.jpg"));
-        final Task task = new Task() {
+        final Task playMusic = new Task() {
             @Override
-            protected Object call() throws Exception {
+            protected Object call(){
                 Media media = new Media(new File("lotr.mp3").toURI().toString());
                 mediaPlayer = new MediaPlayer(media);
                 mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
@@ -67,7 +73,7 @@ public class Main extends Application {
                 return null;
             }
         };
-        Thread thread = new Thread(task);
+        Thread thread = new Thread(playMusic);
         thread.start();
         menu(primaryStage);
     }
@@ -152,7 +158,8 @@ public class Main extends Application {
         hbcharList.getChildren().add(charList);
         grid.add(hbcharList, 3, 3);
         try {
-            charList.setOnAction(e -> chooseCharacter());
+            charList.setOnAction(e -> chooseCharacter()
+            );
         }
         catch (Exception e){
             e.printStackTrace();
@@ -176,7 +183,7 @@ public class Main extends Application {
         version.setTextAlignment(TextAlignment.LEFT);
         version.setText("Version number: "+load.versionNumber());
         grid.add(version, 0,6);
-        grid.setGridLinesVisible(true);
+        grid.setGridLinesVisible(false);
         Scene scene = new Scene(grid, Screen.getPrimary().getVisualBounds().getWidth()/2, Screen.getPrimary().getVisualBounds().getHeight()/2);
         primaryStage.setResizable(true);
         primaryStage.setScene(scene);
@@ -527,19 +534,36 @@ public class Main extends Application {
         HBox hbCreate = new HBox(10);
         hbCreate.getChildren().add(create);
         grid.add(hbCreate, 7, 9,2,1);
+        final Label warningtext = new Label();
+        warningtext.setFont(Font.font("Tahoma", FontWeight.NORMAL, 24));
+        warningtext.setTextFill(Color.RED);
+        grid.add(warningtext,4,10, 5,3);
         create.setOnAction(e-> {if((parseInt(usedPoints.getText()))==maxPoints) {
             int Id=create(data, strengthPoints,dexterityPoints,intelligencePoints,constitutionPoints,luckPoints);
-            DataHandler save=new DataHandler();
-            save.Saver(Id);
-            menu(primaryStage);
+            if(Id!=0) {
+                DataHandler save = new DataHandler();
+                save.Saver(Id);
+                menu(primaryStage);
+            }
+            else {
+                System.out.println("Cannot save file");
+                menu(primaryStage);
+            }
         }
-            //TODO Megjelnő villogás ha nem osztottuk ki az összes értéket else{}
-            //TODO hiba esetén elveti a módosítást és visszadobb a főoldalra throw exception handling
+        else{
+            warningtext.setText("Minden tulajdonságot ki kell osztani\nMég ennyi maradt: "+(maxPoints-parseInt(usedPoints.getText())));
+            Timeline blinker = createBlinker(warningtext);
+            blinker.setOnFinished(event -> warningtext.setText(""));
+            SequentialTransition blinkThenFade = new SequentialTransition(
+                    warningtext,
+                    blinker
+            );
+            blinkThenFade.play();
+        }
         });
-
         String path="\\pictures\\"+data.get(1)+".jpg";
         HBox image=new HBox(new ImageView(new Image(path,350,450,false,false)));
-        grid.add(image,1,0, 1,9);
+        grid.add(image,1,3, 1,9);
         Scene scene = new Scene(grid, Screen.getPrimary().getVisualBounds().getWidth()/2, Screen.getPrimary().getVisualBounds().getHeight()/2);
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -834,5 +858,41 @@ public class Main extends Application {
         if((characterId=creator.newCharacter(charData))!=0){
             return characterId;}
         else return 0;
+    }
+
+    /**
+     * Felugró ablakért felelős függvények
+     * @param node
+     * @return
+     */
+    private Timeline createBlinker(Node node) {
+        Timeline blink = new Timeline(
+                new KeyFrame(
+                        Duration.seconds(0),
+                        new KeyValue(
+                                node.opacityProperty(),
+                                1,
+                                Interpolator.DISCRETE
+                        )
+                ),
+                new KeyFrame(
+                        Duration.seconds(0.5),
+                        new KeyValue(
+                                node.opacityProperty(),
+                                0,
+                                Interpolator.DISCRETE
+                        )
+                ),
+                new KeyFrame(
+                        Duration.seconds(1),
+                        new KeyValue(
+                                node.opacityProperty(),
+                                1,
+                                Interpolator.DISCRETE
+                        )
+                )
+        );
+        blink.setCycleCount(3);
+        return blink;
     }
 }
